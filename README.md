@@ -26,7 +26,7 @@ This repo name is the acronymum of **"Are They Equal Images"** because this is a
 
 ## Examples
 
-Some examples of the complex structures that can be produced are the following:
+Some examples of the structures that will be compared, are the following:
 
 ![Biznaga](/examples/biznaga.png "Biznaga")
 ![Caillo](/examples/caillo.png "Caillo")
@@ -41,7 +41,7 @@ It runs in Octave 5.2.0 version and in both Mac OS Catalina version 10.15.5 Beta
 
 ## Additional packages needed
 
-* `image2.12.0` hosted in Octave Forge (https://octave.sourceforge.io/download.php?package=image-2.12.0.tar.gz).> The Octave-forge Image package provides functions for processing images. The package also provides functions for feature extraction, image statistics, spatial and geometric transformations, morphological operations, linear filtering, and much more.  
+* `image-2.12.0` hosted in Octave Forge (https://octave.sourceforge.io/download.php?package=image-2.12.0.tar.gz).> The Octave-forge Image package provides functions for processing images. The package also provides functions for feature extraction, image statistics, spatial and geometric transformations, morphological operations, linear filtering, and much more.  
 * `slf4o` hosted in Octave Forge (https://github.com/apjanke/octave-slf4o/archive/master.zip)
 
 The packages loading instructions are included in `.octaverc` initial lines. So, it means that each time an octave console is opened, the packages will be installed, if they aren't yet, and loaded.
