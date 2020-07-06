@@ -1,0 +1,47 @@
+
+# Install java and maven for log4j needs
+# More info about Maven: https://es.wikipedia.org/wiki/Maven
+
+toinstall = struct("name", {"struct", "slf4o", "parallel"}, ...
+                    "url", {"https://octave.sourceforge.io/download.php?package=struct-1.0.16.tar.gz", ...
+                            "https://github.com/apjanke/octave-slf4o/archive/master.zip", ...
+                            "https://octave.sourceforge.io/download.php?package=parallel-4.0.0.tar.gz"});
+##NOTE:
+#   Parallel package needs Struct pkg to be installed.
+#   slf4o simple logging framework for GNU Octave
+
+# Set the installation prefix directory. Packages will be installed in this directory.
+#pfx = pkg("prefix");
+
+## gets the name of the installed packages
+installedpacks = pkg('list');
+installedpacknameVector = {};
+for pp = 1:numel(installedpacks) 
+    auxstruct = struct2cell(installedpacks{1,pp});
+    installedpacknameVector = [installedpacknameVector, auxstruct{1,1}];
+endfor
+
+## installs those that aren't yet
+for jj = 1:numel(toinstall) 
+    pkgname = getfield(toinstall(jj), "name");
+    pkgurl = getfield(toinstall(jj), "url");
+    if !ismember(pkgname, installedpacknameVector)
+        printf("Installing %s package...\n", pkgname);
+        pkg('install', pkgurl);
+    endif
+endfor
+
+
+##load all the packages
+packs = pkg('list');
+for jj = 1:numel(packs)
+  pkg('load', packs{jj}.name);
+end
+
+pkg('list');
+
+# Adds internal folders to the path excluding those that shouldn't be in git repo
+addpath(genpath(pwd, "Matlab", ".git", ".vscode", "doc", "packages"));
+
+
+

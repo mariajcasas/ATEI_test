@@ -1,0 +1,9 @@
+ATEI_TEST.code-workspace
+octave.code-workspace
+octave-workspace
+
+.DS_Store
+.vscode
+
+/results/*
+
